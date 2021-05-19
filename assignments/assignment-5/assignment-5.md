@@ -1,17 +1,12 @@
----
-output:
-  word_document: default
-  html_document: default
----
 Assignment 5 - CNNs on cultural image data
 ==============================
 **Peter Thramkrongart and Jakub Raszka**
 
 ##	Github link
 
-Link to the repository: https://github.com/JakubR12/cds-visual.git
+Link to the repository: https://github.com/JakubR12/cds-visual-portfolio.git
 
-Link to the asssignment folder: https://github.com/JakubR12/cds-visual/tree/main/assignments/assignment-5
+Link to the asssignment folder: https://github.com/JakubR12/cds-visual-portfolio/tree/main/assignments/assignment-5
 
 ## Contribution
 
@@ -80,7 +75,7 @@ Metric:
 - Navigate the destination of the repository
 - run the following command  
 ```console
- git clone https://github.com/JakubR12/cds-visual.git
+ git clone https://github.com/JakubR12/cds-visual-portfolio.git
 ```
 
 **Step 2: Get data from Kaggle**

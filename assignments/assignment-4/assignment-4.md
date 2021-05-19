@@ -9,9 +9,9 @@ Assignment 4 - Classification benchmarks
 
 ##	Github link
 
-Link to the repository: https://github.com/JakubR12/cds-visual.git
+Link to the repository: https://github.com/JakubR12/cds-visual-portfolio.git
 
-Link to the asssignment folder: https://github.com/JakubR12/cds-visual/tree/main/assignments/assignment-4
+Link to the asssignment folder: https://github.com/JakubR12/cds-visual-portfolio/tree/main/assignments/assignment-4
 
 ## Contribution
 
@@ -81,7 +81,7 @@ Here are the metrics:
 - Navigate the destination of the repository
 - run the following command  
 ```console
- git clone https://github.com/JakubR12/cds-visual.git
+ git clone https://github.com/JakubR12/cds-visual-portfolio.git
 ``` 
 
 **step 2: Run bash script:**  

@@ -1,17 +1,12 @@
----
-output:
-  word_document: default
-  html_document: default
----
 Self-assigned project - Painter Classification
 ==============================
 **Peter Thramkrongart and Jakub Raszka**
 
 ##	Github link
 
-Link to the repository: https://github.com/JakubR12/cds-visual.git
+Link to the repository: https://github.com/JakubR12/cds-visual-portfolio.git
 
-Link to the asssignment folder: https://github.com/JakubR12/cds-visual/tree/main/assignments/final-project
+Link to the asssignment folder: https://github.com/JakubR12/cds-visual-portfolio/tree/main/assignments/final-project
 
 ## Contribution
 
@@ -95,7 +90,7 @@ Performance metrics of the main Monet-Matisse model:
 - Navigate the destination of the repository
 - run the following command  
 ```console
- git clone https://github.com/JakubR12/cds-visual.git
+ git clone https://github.com/JakubR12/cds-visual-portfolio.git
 ```
 
 **Step 2: Get data from Kaggle**
