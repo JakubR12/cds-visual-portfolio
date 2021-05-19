@@ -1,0 +1,8 @@
+              precision    recall  f1-score   support
+
+       Degas       0.80      0.90      0.85        99
+     Cezanne       0.89      0.78      0.83        99
+
+    accuracy                           0.84       198
+   macro avg       0.84      0.84      0.84       198
+weighted avg       0.84      0.84      0.84       198

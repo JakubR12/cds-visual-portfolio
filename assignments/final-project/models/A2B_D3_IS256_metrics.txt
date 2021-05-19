@@ -1,0 +1,8 @@
+              precision    recall  f1-score   support
+
+       Monet       0.93      0.88      0.90        99
+     Matisse       0.88      0.93      0.91        99
+
+    accuracy                           0.90       198
+   macro avg       0.91      0.90      0.90       198
+weighted avg       0.91      0.90      0.90       198
