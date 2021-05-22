@@ -99,7 +99,7 @@ unzip impressionist-classifier-data.zip
 cd ../..
 ```
 
-**step 3: Run bash script:** 
+**step 3: Run bash script** 
 
 - We have written a bash scripts _cnn_artists.sh_ to set up a virtual environment, run the python script, save the images, and kill the environment afterwards
 
