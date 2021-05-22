@@ -6,7 +6,7 @@ Assignment 4 - Classification benchmarks
 
 Link to the repository: https://github.com/JakubR12/cds-visual-portfolio.git
 
-Link to the asssignment folder: https://github.com/JakubR12/cds-visual-portfolio/tree/main/assignments/assignment-4
+Link to the assignment folder: https://github.com/JakubR12/cds-visual-portfolio/tree/main/assignments/assignment-4
 
 ## Contribution
 
@@ -18,17 +18,15 @@ In this assignment we created two command-line tools which can be used to perfor
 
 We created two python scripts and an extra utility script. One takes the full MNIST data set, trains a Logistic Regression Classifier, and prints the evaluation metrics to the terminal. The other should take the full MNIST dataset, train a neural network classifier, and print the evaluation metrics to the terminal. 
 
-
-
 ## Methods
 
-For modeling we used the LogisticRegression() classifier from sci-kit learn, and the NeuralNetwork class that Ross had build from scratch using only Numpy. They both use a custom function from the utility script to preprocess the data. It fetches the data, rescales it, and train/test splits it.
+For modeling we used the LogisticRegression() classifier from sci-kit learn, and the NeuralNetwork() class that Ross had build from scratch using only Numpy. They both use a custom function from the utility script to preprocess the data. It fetches the data, rescales it, and train/test splits it.
 
 ## Results
 
 Our initial Logistic Regression baseline had a weighted average accuracy of 92%. By comparison, using the neural network model resulted in an accuracy of 96% after 15 epochs. The NeuralNetwork() class was built in pure numpy, and lacked features for finding the optimal architecture and stopping point for training. We suspect that an even higher accuracy can be reached with this model, if you are lucky with the architecture and parameters.
 
-Code wise, we could also improve our scripts so that no time is wasted preprocessing data again and again. 
+Code wise, we could also improve our scripts so that no time is wasted pre-processing data again and again. 
 
 Here are the metrics:
 
@@ -73,44 +71,57 @@ Here are the metrics:
 ## Reproducibility
 
 **Step 1: Clone repository**  
-- open a linux terminal
+
+- Open a linux terminal
+
 - Navigate the destination of the repository
-- run the following command  
+
+- Run the following command  
+
 ```console
  git clone https://github.com/JakubR12/cds-visual-portfolio.git
 ``` 
 
-**step 2: Run bash script:**  
-- Navigate to the folder "assignment-4".  
+**step 2: Run bash script**  
+
+- Navigate to the folder "assignment-4"
+
 ```console
 cd assignments/assignment-4
 ```  
-- We have written a bash script _benchmark_classifiers.sh_ to set up a virtual environment, run the python scripts with default values, save the metrics, and kill the environment afterwards:  
+- We have written a bash script _benchmark_classifiers.sh_ to set up a virtual environment, run the python scripts with default values, save the metrics, and kill the environment afterwards: 
+
 ```console
 bash benchmark_classifiers.sh
 ```  
+
 **Other options**
+
 You can also import the scripts submodule of the src main module in a jupyter notebook, or run the scripts from a the terminal. These ways you can make use of the parameter arguments to play with the model parameters. If you run the scripts directly from the terminal, you can use the create_benchmark_class.sh script to create the environment beforehand. 
 
 **Parameters for running lr_mnist.py from the terminal**
 
 There are 7 arguments which can but do not have to be specified:
 
-    flags: -tr, --train_size,  default: 0.8:  description: int or float, a proportion of the data the model to be trained on
+    flags: -tr, --train_size,   default: 0.8:                             description: int or float, a proportion of the data 
+                                                                                       the model to be trained on
 
-    flags: -ts, --test_size:  default: 0.2, description: int or float, a proportion of the data the model to be trained on
+    flags: -ts, --test_size:    default: 0.2,                             description: int or float, a proportion of the data 
+                                                                                       the model to be trained on
 
-    flags: -r, --random_state: default: None, description:   int, a random seed
+    flags: -r,  --random_state: default: None,                            description: int, a random seed
 
-    flags: -sm, --save_metrics: default: None, description: bool, whether to save the metrics
+    flags: -sm, --save_metrics: default: None,                            description: bool, whether to save the metrics
 
-    flags: -mf, --metrics_safe, default: logistic_regression_metrics.txt, description: str, the filename of the metrics with the .txt ending
+    flags: -mf, --metrics_safe, default: logistic_regression_metrics.txt, description: str, the filename of the metrics 
+                                                                                       with the .txt ending
 
-    flags: -t, --tolerance, default: 0.1, description: float, Tolerance for stopping criteria
+    flags: -t,  --tolerance,    default: 0.1,                             description: float, Tolerance for stopping criteria
 
-    flags: -p, --penalty, default: None, description: "none" "l1", ‘l2’, "elasticnet
+    flags: -p,  --penalty,      default: None,                            description: "none" "l1", ‘l2’, "elasticnet
 
 example:
+
 ```console
   python lr-mnist.py -tr 0.7 -ts 0.3 -r 2 -sm -mf log_reg_filename.txt -t 0.001 -p l2 
 ```
@@ -121,21 +132,26 @@ example:
 
 There are 7 arguments which can but do not have to be specified:
 
-    flags: -tr, --train_size,  default: 0.8:  description: int or float, a proportion of the data the model to be trained on
+    flags: -tr, --train_size,    default: 0.8:                        description: int or float, a proportion of the data 
+                                                                                   the model to be trained on
 
-    flags: -ts, --test_size:  default: 0.2, description: int or float, a proportion of the data the model to be trained on
+    flags: -ts, --test_size:     default: 0.2,                        description: int or float, a proportion of the data 
+                                                                                   the model to be trained on
 
-    flags: -r, --random_state: default: None, description:   int, a random seed
+    flags: -r,  --random_state:  default: None,                       description: int, a random seed
 
-    flags: -sm, --save_metrics: default: None, description: bool, whether to save the metrics
+    flags: -sm, --save_metrics:  default: None,                       description: bool, whether to save the metrics
 
-    flags: -mf, --metrics_safe, default: neural_network_metrics.txt, description: str, the filename of the metrics with the .txt ending
+    flags: -mf, --metrics_safe,  default: neural_network_metrics.txt, description: str, the filename of the metrics 
+                                                                                   with the .txt ending
 
-    flags: -e, --epochs, default: 15, description: int, a number of epochs
+    flags: -e,  --epochs,        default: 15,                         description: int, a number of epochs
 
-    flags: -hl, --hidden_layers, default: [32,16], description: list, a number of nodes in the two hidden layers, the third is set to 10 automatically
+    flags: -hl, --hidden_layers, default: [32,16],                    description: list, a number of nodes in the two hidden 
+                                                                                   layers, the third is set to 10 automatically
 
 example:
+
 ```console
   python nn-mnist.py -tr 0.7 -ts 0.3 -r 2 -sm -mf neural_network_filename.txt -e 10 -hl 28, 14
 ```  
@@ -172,6 +188,3 @@ The folder structure of our projects are based on a simplified version of the co
     │
     └── src                <- Source code for use in this project.
       └── __init__.py    <- Makes src a Python module
-    
-
-

@@ -29,7 +29,7 @@ The instructions are:
 
 ## Methods
 
-The problem at hand concerns finding a text in an image. In order to do so, we first cropped the image to obtain only a text part of the image. Secondly, we transformed the image into a grayscale, used a median blur with a manually set threshold to achieve the best result. The contours of text were found by canny edge detection and colored green.
+The problem at hand concerns finding a text in an image. In order to do so, we first cropped the image to obtain only a text part of the image. Secondly, we transformed the image into a gray scale, used a median blur with a manually set threshold to achieve the best result. The contours of text were found by canny edge detection and colored green.
 
 ## Results
 
@@ -41,20 +41,27 @@ Here are the images:
 
 ## Reproducibility
 
-**Step 1: Clone repository**  
-- open a linux terminal
+**Step 1: Clone repository**
+
+- Open a linux terminal
+
 - Navigate the destination of the repository
-- run the following command  
+
+- Run the following command  
+
 ```console
  git clone https://github.com/JakubR12/cds-visual-portfolio.git
 ``` 
 
-**step 2: Run bash script:**  
-- Navigate to the folder "assignment-3".  
+**step 2: Run bash script** 
+
+- Navigate to the folder "assignment-3"
+
 ```console
 cd assignments/assignment-3
 ```  
-- We have written ad _edge_detection.sh_ to set up a virtual environment, run the python script, save the images, and kill the environment afterwards:  
+- We have written ad _edge_detection.sh_ to set up a virtual environment, run the python script, save the images, and kill the environment afterwards 
+
 ```console
 bash edge_detection.sh
 ```  

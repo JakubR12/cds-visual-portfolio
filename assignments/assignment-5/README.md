@@ -21,12 +21,12 @@ Using this data, you should build a deep learning model using convolutional neur
 
 For this assignment, you can use the CNN code we looked at in class, such as the ShallowNet architecture or LeNet. You are also welcome to build your own model, if you dare - I recommend against doing this.
 
-You'll also need to think about how to get the images into an array for the model and how to extract 'labels' from filenames for use in the classification report
+You'll also need to think about how to get the images into an array for the model and how to extract 'labels' from file names for use in the classification report
 
 
 ## Methods
 
-The data were obtained from Kaggle (the link above). It consisted of around 5000 images from 10 different impressionistic artists. For this problem we choose to use the Keras ImageDataGenerator() class to load, rescale to 0-1, and resize the images to 64X64 pixels This class also has the ability to create new data, by zooming, sheering, flipping, and rotating images. We don'´t use this functionality in this project, but given the fact we only have about 4000 images to train on, it may come in handy ;-). We used a slightly modified LeNet architecture with only 256 nodes in the dense network layer to increase efficiency. To further increase training speed we used the ADAM optimizer and implemented an early stopping mechanism to monitor improvement on validation loss.
+The data were obtained from Kaggle (the link above). It consisted of around 5000 images from 10 different impressionistic artists. For this problem we choose to use the Keras ImageDataGenerator() class to load, re-scale to 0-1, and re-size the images to 64X64 pixels This class also has the ability to create new data, by zooming, sheering, flipping, and rotating images. We don'´t use this functionality in this project, but given the fact we only have about 4000 images to train on, it may come in handy ;-). We used a slightly modified LeNet architecture with only 256 nodes in the dense network layer to increase efficiency. To further increase training speed we used the ADAM optimizer and implemented an early stopping mechanism to monitor improvement on validation loss.
 
 The architecture of the network:
 
@@ -72,26 +72,37 @@ Metric:
 ## Reproducibility
 
 **Step 1: Clone repository**  
-- open a linux terminal
+
+- Open a linux terminal
+
 - Navigate the destination of the repository
+
 - run the following command  
+
 ```console
  git clone https://github.com/JakubR12/cds-visual-portfolio.git
 ```
 
 **Step 2: Get data from Kaggle**
-follow these instruction on how to get access to the Kaggle API:
-https://www.kaggle.com/docs/api
-If you already have API access run these commands in the terminaL:
+
+- Follow these instruction on how to get access to the Kaggle API: https://www.kaggle.com/docs/api
+
+- If you already have API access run these commands in the terminal
+
 ```console
 cd assignments/assignment-5/data/raw
+
 kaggle datasets download -d delayedkarma/impressionist-classifier-data
+
 unzip impressionist-classifier-data.zip
+
 cd ../..
 ```
 
-**step 3: Run bash script:**  
-- We have written a bash scripts _cnn_artists.sh_ to set up a virtual environment, run the python script, save the images, and kill the environment afterwards:  
+**step 3: Run bash script:** 
+
+- We have written a bash scripts _cnn_artists.sh_ to set up a virtual environment, run the python script, save the images, and kill the environment afterwards
+
 ```console
 bash cnn_artists.sh
 ```  

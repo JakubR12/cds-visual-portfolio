@@ -23,7 +23,7 @@ Using this data,  we built a deep learning model which classify paintings by the
 
 The data were obtained from Kaggle (the link above). It consisted of around 5000 images from 10 different impressionistic artists. 
 
-For this problem we choose to use the Keras ImageDataGenerator() class to load, rescale to 0-1 and resized multiple times to find the best image size. The data generator was further used to create more images by zooming and mirroring the original images. Due to an error in our code, we actually ran all of our models with vertical flipping instead of horizontal flipping. This means that our models trained on upside down images instead of regularly mirrored images. We actually found that our models performed slightly better this way, but due to the "unrealisticness" of this manipulation we chose to correct it at the cost of 1 or 2 % accuracy. The function offers more methods for data augmentation. We chose only the zoom and flip as we reckoned that other methods would result in too artificial and unrealistic images compared to the original ones.
+For this problem we choose to use the Keras ImageDataGenerator() class to load, re-scale to 0-1 and re-sized multiple times to find the best image size. The data generator was further used to create more images by zooming and mirroring the original images. Due to an error in our code, we actually ran all of our models with vertical flipping instead of horizontal flipping. This means that our models trained on upside down images instead of regularly mirrored images. We actually found that our models performed slightly better this way, but due to the "unrealisticness" of this manipulation we chose to correct it at the cost of 1 or 2 % accuracy. The function offers more methods for data augmentation. We chose only the zoom and flip as we reckoned that other methods would result in too artificial and unrealistic images compared to the original ones.
 
 We used the pre-trained VGG16 model without the top dense layer as a feature extractor and trained a neural net classifier on the extracted features. We were inspired by this article (https://xingyuzhou.org/documents/transfer-learning.pdf) in which an outstanding 98 % accuracy was reached in the binary classification between Monet and Van Gogh. 
 
@@ -87,62 +87,86 @@ Performance metrics of the main Monet-Matisse model:
 
 ## Reproducibility
 
-**Step 1: Clone repository**  
-- open a linux terminal
+**Step 1: Clone repository** 
+
+- Open a linux terminal
+
 - Navigate the destination of the repository
-- run the following command  
+
+- Run the following command
+
 ```console
  git clone https://github.com/JakubR12/cds-visual-portfolio.git
 ```
 
 **Step 2: Get data from Kaggle**
-- Follow these instruction on how to get access to the Kaggle API:
-https://www.kaggle.com/docs/api
-- If you already have API access run these commands in the terminaL:
+
+- Follow these instruction on how to get access to the Kaggle API: https://www.kaggle.com/docs/api
+
+- If you already have API access run these commands in the terminaL
+
 ```console
 cd assignments/final-project/data/raw
+
 kaggle datasets download -d delayedkarma/impressionist-classifier-data
+
 unzip impressionist-classifier-data.zip
+
 cd ../..
 ```
 
-**step 3: Setup the virtual environment:**  
-- You can setup the virtual environment by running the _create_cnn_v2_venv.sh_ script and the activate with command below.
+**step 3: Setup the virtual environment**  
+
+- You can setup the virtual environment by running the _create_cnn_v2_venv.sh_ script and the activate with command below
+
 ```console
 bash create_cnn_v2_venv.sh
 
 source cnn_v2_venv/bin/activate
 ```  
 
-**step 4: Run the script:**  
-- You can run the model and adjust its (optional) parameters, we provide our baseline model as an example:
+**step 4: Run the script**  
 
-     Input:
-    model_name, default: VVG16_artistic_classifier,   description: str,   a name of the model and its corresponding
-                                                                          plots and weights,
-    epochs:     default: 50,                          description: int,   a number of epochs
-    patience:   default: 3,                           description: int,   a number of how many times can a model perform
-                                                                        worse than in the previous epoch before it is shut down
-    dropout:    default: 0.3,                         description: float, a dropout in the network
-    image_size: default: 128,                         description: int,   a number of pixels of the images
+- You can run the model and adjust its (optional) parameters, we provide our baseline model as an example
+
+```
+   Input:
+   
+    flags: -n, --model-name,  default: VVG16_artistic_classifier,   description: str,   a name of the model and
+                                                                                its corresponding plots and weights,
+                                                                                
+    flags: -e, --epochs,      default: 50,                          description: int,   a number of epochs
+    
+    flags: -p, --patience,    default: 3,                           description: int,   a number of how many a model can
+                                                                                perform worse than in the previous epoch 
+                                                                                before it is shut down
+                                                                                
+    flags: -d, --dropout,     default: 0.3,                         description: float, a dropout in the network
+    
+    flags: -is, --image_size, default: 128,                         description: int,   a number of pixels of the images
+
 
     Output:
+    
       In to the "models" folder, following things are saved:
         - report metric
         - plot history
         - model weights
         - model architecture
-
+```
 
 ```console
 cd src
 
 python python VGG16_artist.py -is 128 -n "A2B_D3_IS128"
 ``` 
-You can also choose the artists you want to classify. All you need to do is to change the _artists.txt_ file. Every artist should be put on a separate line with no other separator in between. Also make sure that they are no empty lines left. The full list of 10 artists you can pick from can be found in the _all-artists.txt_ file. 
 
-**step 5: Killing the environment:**  
-- You can kill the virtual environment by running the _kill_cnn_v2_venv.sh_ script which can be found in the final project folder:
+- You can also choose the artists you want to classify. All you need to do is to change the _artists.txt_ file. Every artist should be put on a separate line with no other separator in between. Also make sure that they are no empty lines left. The full list of 10 artists you can pick from can be found in the _all-artists.txt_ file. 
+
+**step 5: Killing the environment**  
+
+- You can kill the virtual environment by running the _kill_cnn_v2_venv.sh_ script which can be found in the final project folder
+
 ```console
 cd ..
 
